@@ -1,0 +1,65 @@
+<div class="container mt-4">
+  <!-- Header Section -->
+  <div class="header-section">
+    <h1>Booking List</h1>
+    <p>จัดการและติดตามการจองห้องเรียนของคุณ</p>
+  </div>
+
+  <mat-card>
+    <mat-card-header>
+      <div class="w-100 d-flex justify-content-between align-items-center mb-3">
+        <h2 class="mb-0">All Bookings</h2>
+        <button mat-raised-button color="primary" routerLink="/booking-form">
+          <mat-icon>add</mat-icon>
+          Book a Room
+        </button>
+      </div>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row g-4">
+        <div class="col-md-6" *ngFor="let booking of bookings">
+          <mat-card class="booking-card">
+            <mat-card-content>
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <h3 class="room-number">Room {{booking.room_number}}</h3>
+                  <p class="booking-date">
+                    <mat-icon>event</mat-icon>
+                    {{formatDate(booking.booking_date)}}
+                  </p>
+                  <p class="booking-time">
+                    <mat-icon>schedule</mat-icon>
+                    {{formatTimeSlot(booking.time_slot)}}
+                  </p>
+                </div>
+                <mat-chip [ngClass]="'status-' + booking.status.toLowerCase()" [color]="getStatusColor(booking.status)" selected>
+                  {{booking.status}}
+                </mat-chip>
+              </div>
+              <mat-divider class="my-3"></mat-divider>
+              <div class="booking-actions">
+                <button mat-stroked-button color="warn" 
+                        *ngIf="booking.status === 'pending'"
+                        (click)="cancelBooking(booking.id)">
+                  <mat-icon>cancel</mat-icon>
+                  Cancel Booking
+                </button>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+
+      <!-- Empty State -->
+      <div *ngIf="bookings.length === 0" class="text-center py-5">
+        <mat-icon class="empty-icon">event_busy</mat-icon>
+        <h3>No Bookings</h3>
+        <p>You haven't booked any rooms yet</p>
+        <button mat-raised-button color="primary" routerLink="/booking-form">
+          <mat-icon>add</mat-icon>
+          Book a Room Now
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

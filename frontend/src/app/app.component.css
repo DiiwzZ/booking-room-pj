@@ -1,0 +1,10 @@
+/* ตั้งค่าทั่วไปให้กับ html และ body */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;  /* จัดแนวนอนให้ตรงกลาง */
+    align-items: center;  /* จัดแนวตั้งให้ตรงกลาง */
+    background-color: #f4f4f4; /* สีพื้นหลัง */
+  }
+  

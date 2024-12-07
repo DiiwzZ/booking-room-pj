@@ -1,0 +1,68 @@
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header">
+      <h2>Create New Booking</h2>
+      <p class="mb-0">กรอกข้อมูลเพื่อจองห้องเรียน</p>
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" 
+                 class="form-control" 
+                 id="name" 
+                 [(ngModel)]="booking.name" 
+                 name="name" 
+                 required>
+        </div>
+
+        <div class="form-group">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label *ngIf="!booking.booking_date">Choose a date</mat-label>
+            <input matInput 
+                   [matDatepicker]="picker"
+                   [(ngModel)]="booking.booking_date"
+                   name="booking_date"
+                   [min]="minDate"
+                   required>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <div class="form-group">
+          <label for="time_slot">Time Slot</label>
+          <select class="form-control" 
+                  id="time_slot" 
+                  [(ngModel)]="booking.time_slot" 
+                  name="time_slot" 
+                  required>
+            <option value="">Select time slot</option>
+            <option value="9-11">09:00 - 11:00</option>
+            <option value="11-13">11:00 - 13:00</option>
+            <option value="13-15">13:00 - 15:00</option>
+            <option value="15-17">15:00 - 17:00</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="room_number">Room Number</label>
+          <select 
+              class="form-control" 
+              id="room_number" 
+              [(ngModel)]="booking.room_number" 
+              name="room_number" 
+              required
+          >
+            <option value="">Select room</option>
+            <option *ngFor="let room of availableRooms" [value]="room.room_number">
+              Room {{room.room_number}}
+            </option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">Submit Booking</button>
+      </form>
+    </div>
+  </div>
+</div>

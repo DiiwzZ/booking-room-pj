@@ -1,0 +1,85 @@
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.section-header {
+  background: linear-gradient(135deg, #0396FF 0%, #ABDCFF 100%);
+  padding: 40px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.section-header h2 {
+  color: white;
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+.users-section {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.user-table th,
+.user-table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.user-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: #0396FF;
+}
+
+.user-table tr:hover {
+  background-color: #f8f9fa;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* Form Fields */
+mat-form-field {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+/* Dialog Styles */
+mat-dialog-container {
+  padding: 20px;
+  max-width: 500px;
+  margin: 20px auto;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+mat-dialog-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+mat-dialog-actions {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}

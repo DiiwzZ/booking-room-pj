@@ -1,0 +1,194 @@
+/* General Styling */
+body {
+    background-color: #f8f9fa; /* Light grey background */
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Section */
+.header-section {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.header-section h1 {
+    font-size: 2rem;
+    margin: 0;
+    color: white;
+}
+
+.header-section p {
+    margin: 1rem 0 0;
+    opacity: 0.9;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    margin-top: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+th {
+    background-color: #007bff;
+    color: #fff;
+    text-align: left;
+    padding: 10px;
+    font-size: 14px;
+}
+
+td {
+    padding: 10px;
+    border-bottom: 1px solid #dee2e6;
+    font-size: 14px;
+}
+
+tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+/* Heading Styling */
+h1 {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Header Title */
+mat-card-header h2 {
+    color: #2c3e50;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+mat-card-header .w-100 {
+    padding: 1rem 0;
+}
+
+/* Booking Cards */
+.booking-card {
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.booking-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.room-number {
+    font-size: 1.4rem;
+    margin: 0 0 1rem 0;
+    color: #2c3e50;
+}
+
+.booking-date, .booking-time {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+    color: #666;
+}
+
+.booking-date mat-icon, .booking-time mat-icon {
+    font-size: 1.2rem;
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+/* Empty State */
+.empty-icon {
+    font-size: 4rem;
+    width: 4rem;
+    height: 4rem;
+    margin-bottom: 1rem;
+    color: #3498db;
+}
+
+/* Material Overrides */
+mat-card {
+    border-radius: 8px !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+}
+
+mat-card-header {
+    padding: 1rem;
+}
+
+mat-card-content {
+    padding: 1rem !important;
+}
+
+mat-chip {
+    font-size: 0.9rem !important;
+}
+
+button[mat-raised-button],
+button[mat-stroked-button] {
+    text-transform: none !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .booking-card {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Status Chips Styling */
+::ng-deep mat-chip.status-pending {
+  background-color: #fff3cd !important;
+  color: #856404 !important;
+  border: 1px solid #ffeeba !important;
+}
+
+::ng-deep mat-chip.status-approved {
+  background-color: #e3f2fd !important;
+  color: #0d47a1 !important;
+  border: 1px solid #bbdefb !important;
+}
+
+::ng-deep mat-chip.status-rejected {
+  background-color: #f8d7da !important;
+  color: #721c24 !important;
+  border: 1px solid #f5c6cb !important;
+}
+
+/* ปรับแต่งทั่วไปของ chip */
+::ng-deep .mat-mdc-chip {
+  padding: 4px 12px !important;
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  height: auto !important;
+  min-height: 24px !important;
+}
+
+/* ลบ background color เดิมของ Material */
+::ng-deep .mat-mdc-chip.mdc-evolution-chip {
+  --mdc-chip-elevated-container-color: transparent;
+  --mdc-chip-container-color: transparent;
+}

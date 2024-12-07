@@ -1,0 +1,133 @@
+body {
+  background-color: #f4f4f4;
+}
+
+.container {
+  background-color: #f4f4f4;
+}
+
+.card {
+  border: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background-color: #ffffff;
+  margin-bottom: 1.5rem;
+}
+
+/* Hero Section */
+.card.mb-4:first-child {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+}
+
+.card.mb-4:first-child .card-title {
+  color: white;
+}
+
+.card.mb-4:first-child .lead {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Section Headers */
+h2.text-center.mb-4 {
+  color: #3498db;
+  font-weight: 600;
+}
+
+/* Feature Cards */
+.card.h-100 {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 8px;
+  background-color: #ffffff;
+}
+
+.card.h-100:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.card-title {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.card-text {
+  color: #666;
+}
+
+/* Icons */
+.feature-icon, .room-icon {
+  font-size: 2.5rem;
+  height: 2.5rem;
+  width: 2.5rem;
+  margin-bottom: 1rem;
+  color: #3498db;
+}
+
+/* Buttons */
+button[mat-raised-button],
+button[mat-stroked-button] {
+  background-color: #3498db !important;
+  color: white !important;
+  padding: 8px 24px !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.5px !important;
+  border: none !important;
+  transition: background-color 0.3s ease !important;
+}
+
+button[mat-raised-button]:hover,
+button[mat-stroked-button]:hover {
+  background-color: #2980b9 !important;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important;
+}
+
+button[mat-raised-button] mat-icon,
+button[mat-stroked-button] mat-icon {
+  color: white !important;
+  margin-right: 8px !important;
+}
+
+/* Status Badges */
+.badge {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .card-body {
+    padding: 1.25rem;
+  }
+
+  h1.card-title {
+    font-size: 2rem;
+  }
+
+  h2.text-center.mb-4 {
+    font-size: 1.8rem;
+  }
+
+  .lead {
+    font-size: 1.1rem;
+  }
+}
+
+/* Additional Styling */
+.row.g-4 > div {
+  margin-bottom: 1rem;
+}
+
+.card-body.text-center {
+  padding: 1.5rem;
+}
+
+mat-icon {
+  color: #3498db;
+}

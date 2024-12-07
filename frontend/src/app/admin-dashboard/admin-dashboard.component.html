@@ -1,0 +1,90 @@
+<main class="page-container" role="main">
+  <header class="header-section">
+    <h1>Admin Dashboard</h1>
+  </header>
+
+  <!-- Stats Section -->
+  <section class="content-section">
+    <h2 class="section-title">Dashboard Statistics</h2>
+    <div class="cards-grid">
+      <div class="stats-card">
+        <div class="stats-number">{{bookings.length}}</div>
+        <div>Total Bookings</div>
+      </div>
+      <div class="stats-card">
+        <div class="stats-number">{{getPendingBookings()}}</div>
+        <div>Pending Bookings</div>
+      </div>
+      <div class="stats-card">
+        <div class="stats-number">{{users.length}}</div>
+        <div>Total Users</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bookings Section -->
+  <mat-card class="content-section">
+    <mat-card-header>
+      <div class="w-100 d-flex justify-content-between align-items-center mb-3">
+        <h2 class="section-title mb-0">All Bookings</h2>
+      </div>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row g-4">
+        <div class="col-md-6" *ngFor="let booking of bookings; let i = index">
+          <mat-card class="booking-card">
+            <mat-card-content>
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <h3 class="room-number">Room {{booking.room_number}}</h3>
+                  <p class="booking-user">
+                    <mat-icon>person</mat-icon>
+                    {{booking.name}}
+                  </p>
+                  <p class="booking-date">
+                    <mat-icon>event</mat-icon>
+                    {{booking.booking_date | date:'mediumDate'}}
+                  </p>
+                  <p class="booking-time">
+                    <mat-icon>schedule</mat-icon>
+                    <ng-container [ngSwitch]="booking.time_slot">
+                      <span *ngSwitchCase="'9-11'">09:00 - 11:00</span>
+                      <span *ngSwitchCase="'11-13'">11:00 - 13:00</span>
+                      <span *ngSwitchCase="'13-15'">13:00 - 15:00</span>
+                      <span *ngSwitchCase="'15-17'">15:00 - 17:00</span>
+                    </ng-container>
+                  </p>
+                </div>
+                <mat-chip [ngClass]="'status-' + booking.status.toLowerCase()" [color]="getStatusColor(booking.status)" selected>
+                  {{booking.status}}
+                </mat-chip>
+              </div>
+              <mat-divider class="my-3"></mat-divider>
+              <div class="booking-actions">
+                <button mat-raised-button class="btn-approve"
+                        (click)="updateBookingStatus(booking.id, 'approved')" 
+                        [disabled]="booking.status === 'approved'">
+                  <mat-icon>check</mat-icon>
+                  Approve
+                </button>
+                <button mat-raised-button class="btn-reject"
+                        (click)="updateBookingStatus(booking.id, 'rejected')"
+                        [disabled]="booking.status === 'rejected'">
+                  <mat-icon>close</mat-icon>
+                  Reject
+                </button>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+
+      <!-- Empty State -->
+      <div *ngIf="bookings.length === 0" class="text-center py-5">
+        <mat-icon class="empty-icon">event_busy</mat-icon>
+        <h3>No Bookings Yet</h3>
+        <p>There are no bookings in the system at the moment.</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</main>

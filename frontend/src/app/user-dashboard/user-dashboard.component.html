@@ -1,0 +1,132 @@
+<div class="container mt-4">
+  <!-- User Profile Section -->
+  <mat-card class="profile-card mb-4">
+    <mat-card-content>
+      <div class="d-flex align-items-center">
+        <div class="profile-icon">
+          <mat-icon>account_circle</mat-icon>
+        </div>
+        <div class="profile-info">
+          <h2>Welcome, {{user.username}}</h2>
+          <p class="text-white">{{user.email}}</p>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Stats Section -->
+  <div class="row g-4 mb-4">
+    <div class="col-md-3">
+      <mat-card class="stats-card">
+        <mat-card-content>
+          <div class="stat-content">
+            <mat-icon color="primary">event</mat-icon>
+            <div class="stat-info">
+              <h3>Total Bookings</h3>
+              <p class="stat-number">{{stats.total}}</p>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col-md-3">
+      <mat-card class="stats-card">
+        <mat-card-content>
+          <div class="stat-content">
+            <mat-icon color="warn">pending</mat-icon>
+            <div class="stat-info">
+              <h3>Pending Approval</h3>
+              <p class="stat-number">{{stats.pending}}</p>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col-md-3">
+      <mat-card class="stats-card">
+        <mat-card-content>
+          <div class="stat-content">
+            <mat-icon color="primary">check_circle</mat-icon>
+            <div class="stat-info">
+              <h3>Approved</h3>
+              <p class="stat-number">{{stats.approved}}</p>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col-md-3">
+      <mat-card class="stats-card">
+        <mat-card-content>
+          <div class="stat-content">
+            <mat-icon color="accent">cancel</mat-icon>
+            <div class="stat-info">
+              <h3>Rejected</h3>
+              <p class="stat-number">{{stats.rejected}}</p>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+  <!-- Bookings Section -->
+  <mat-card>
+    <mat-card-header>
+      <div class="w-100 d-flex justify-content-between align-items-center mb-3">
+        <h2 class="mb-0">My Bookings</h2>
+        <button mat-raised-button color="primary" routerLink="/booking-form">
+          <mat-icon>add</mat-icon>
+          Book a Room
+        </button>
+      </div>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row g-4 mt-2">
+        <div class="col-md-6" *ngFor="let booking of bookings">
+          <mat-card class="booking-card">
+            <mat-card-content>
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <h3 class="room-number">Room {{booking.room_number}}</h3>
+                  <p class="booking-date">
+                    <mat-icon>event</mat-icon>
+                    {{formatDate(booking.booking_date)}}
+                  </p>
+                  <p class="booking-time">
+                    <mat-icon>schedule</mat-icon>
+                    {{formatTimeSlot(booking.time_slot)}}
+                  </p>
+                </div>
+                <mat-chip [ngClass]="'status-' + booking.status.toLowerCase()" [color]="getStatusColor(booking.status)" selected>
+                  {{booking.status}}
+                </mat-chip>
+              </div>
+              <mat-divider class="my-3"></mat-divider>
+              <div class="booking-actions">
+                <button mat-stroked-button color="warn" 
+                        *ngIf="booking.status === 'pending'"
+                        (click)="cancelBooking(booking.id)">
+                  <mat-icon>cancel</mat-icon>
+                  Cancel Booking
+                </button>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+
+      <!-- Empty State -->
+      <div *ngIf="bookings.length === 0" class="text-center py-5">
+        <mat-icon class="empty-icon">event_busy</mat-icon>
+        <h3>No Bookings</h3>
+        <p>You haven't booked any rooms yet</p>
+        <button mat-raised-button color="primary" routerLink="/booking-form">
+          <mat-icon>add</mat-icon>
+          Book a Room Now
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+  

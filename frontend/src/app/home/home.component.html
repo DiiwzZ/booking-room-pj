@@ -1,0 +1,73 @@
+<div class="container mt-4">
+  <!-- Hero Section -->
+  <div class="card mb-4">
+    <div class="card-body text-center">
+      <h1 class="card-title">{{title}}</h1>
+      <p class="lead">{{description}}</p>
+      <div class="d-flex justify-content-center gap-3">
+        <button mat-raised-button color="primary" routerLink="/booking-form">
+          <mat-icon>add</mat-icon>
+          จองห้องเรียน
+        </button>
+        <button mat-stroked-button color="primary" routerLink="/booking-list">
+          <mat-icon>list</mat-icon>
+          การจองของฉัน
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Features Section -->
+  <div class="card mb-4">
+    <div class="card-body">
+      <h2 class="text-center mb-4">คุณสมบัติเด่น</h2>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3" *ngFor="let feature of features">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <mat-icon class="feature-icon" color="primary">{{feature.icon}}</mat-icon>
+              <h3 class="card-title">{{feature.title}}</h3>
+              <p class="card-text">{{feature.description}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rooms Section -->
+  <div class="card mb-4">
+    <div class="card-body">
+      <h2 class="text-center mb-4">ห้องเรียนที่ให้บริการ</h2>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3" *ngFor="let room of rooms">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <mat-icon class="room-icon" color="primary">{{room.icon}}</mat-icon>
+              <h3 class="card-title">ห้อง {{room.number}}</h3>
+              <p class="card-text">{{room.capacity}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Time Slots Section -->
+  <div class="card mb-4">
+    <div class="card-body">
+      <h2 class="text-center mb-4">ช่วงเวลาที่ให้บริการ</h2>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3" *ngFor="let slot of timeSlots">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <mat-icon color="primary">{{slot.icon}}</mat-icon>
+              <h3 class="card-title">ช่วงที่ {{slot.id}}</h3>
+              <p class="card-text">{{slot.time}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

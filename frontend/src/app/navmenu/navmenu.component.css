@@ -1,0 +1,28 @@
+/* ตัวอย่างการจัดแต่ง Navmenu */
+.navbar {
+    background-color: #2a9d8f; /* สีพื้นหลัง */
+  }
+  
+  .nav-link {
+    color: #2a9d8f; /* สีของตัวหนังสือ */
+    padding: 10px 20px;
+  }
+  
+  .nav-link.active {
+    font-weight: bold; /* ตัวเลือกที่ถูกเลือก */
+    color: #e9c46a; /* สีที่เปลี่ยนเมื่อเลือก */
+  }
+  
+  .navbar-toggler {
+    border: none; /* ทำให้ปุ่มเปิดปิด navbar ไม่มีขอบ */
+  }
+  
+  .navbar-toggler-icon {
+    color: #ffffff; /* เปลี่ยนสีของไอคอน */
+  }
+  
+  .navbar-brand {
+    color:#2a9d8f;
+    font-weight: bold;
+    font-size:x-large;
+  }
